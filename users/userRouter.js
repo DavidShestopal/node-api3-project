@@ -28,6 +28,10 @@ router.post('/:id/posts', validatePost, (req, res) => {
       res.status(500).json({ messsage: 'Error adding the post.' });
     });
 });
+router.get('/', (req, res) => {
+  const message = process.env.MESSAGE || 'hello from localhost';
+  res.status(200).json({ api: 'up', message });
+});
 
 router.get('/', (req, res) => {
   // do your magic!
